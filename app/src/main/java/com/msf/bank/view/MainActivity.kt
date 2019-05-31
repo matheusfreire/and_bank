@@ -1,7 +1,8 @@
-package com.msf.bank
+package com.msf.bank.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.msf.bank.R
 
 class MainActivity : AppCompatActivity() {
 

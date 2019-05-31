@@ -3,86 +3,93 @@
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable name="account" type="com.msf.bank.model.Account"/>
+    </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
         <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
                 android:background="@color/colorPrimary"
                 app:layout_constraintBottom_toTopOf="@+id/guideline_horizontal"
-                app:layout_constraintTop_toTopOf="parent">
+                app:layout_constraintTop_toTopOf="parent" tools:layout_editor_absoluteX="0dp"
+                app:layout_constraintVertical_bias="0.0">
 
             <androidx.constraintlayout.widget.Guideline
-                    android:id="@+id/guideline_vertical"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    app:layout_constraintGuide_begin="20dp"/>
+                android:id="@+id/guideline_vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_begin="20dp"/>
 
 
             <TextView
-                    android:id="@+id/account_name"
-                    style="@style/AccountName"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/dimen_15dp"
-                    app:layout_constraintStart_toStartOf="@+id/guideline_vertical"
-                    app:layout_constraintTop_toTopOf="parent"
-                    tools:text="Jose da Silva Teste"/>
+                android:id="@+id/account_name"
+                style="@style/AccountName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_15dp"
+                android:text="@{account.name}"
+                app:layout_constraintStart_toStartOf="@+id/guideline_vertical"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Jose da Silva Teste"/>
 
             <ImageView
-                    android:id="@+id/out"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/dimen_15dp"
-                    android:layout_marginEnd="@dimen/dimen_10dp"
-                    android:contentDescription="@string/out"
-                    android:padding="@dimen/dimen_5dp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"/>
+                android:id="@+id/out"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_15dp"
+                android:layout_marginEnd="@dimen/dimen_10dp"
+                android:contentDescription="@string/out"
+                android:padding="@dimen/dimen_5dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
 
             <TextView
-                    android:id="@+id/labelAccount"
-                    style="@style/Label"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/dimen_1dp"
-                    android:text="@string/account"
-                    app:layout_constraintBottom_toTopOf="@+id/account"
-                    app:layout_constraintStart_toStartOf="@+id/guideline_vertical"/>
+                android:id="@+id/labelAccount"
+                style="@style/Label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dimen_1dp"
+                android:text="@string/account"
+                app:layout_constraintBottom_toTopOf="@+id/account"
+                app:layout_constraintStart_toStartOf="@+id/guideline_vertical"/>
 
             <TextView
-                    android:id="@+id/account"
-                    style="@style/ItemValueWhite"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/dimen_20dp"
-                    app:layout_constraintBottom_toTopOf="@id/labelValue"
-                    app:layout_constraintStart_toStartOf="@+id/guideline_vertical"
-                    tools:text="2050 / 01.111222-4"/>
+                android:id="@+id/account"
+                style="@style/ItemValueWhite"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dimen_20dp"
+                android:text="@{account.agency + `/` +  account.bankAccount}"
+                app:layout_constraintBottom_toTopOf="@id/labelValue"
+                app:layout_constraintStart_toStartOf="@+id/guideline_vertical"
+                tools:text="2050 / 01.111222-4"/>
 
 
             <TextView
-                    android:id="@+id/balanceValue"
-                    style="@style/ItemValueWhite"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/dimen_20dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="@+id/guideline_vertical"
-                    tools:text="R$ 1.000,00"/>
+                android:id="@+id/balanceValue"
+                style="@style/ItemValueWhite"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dimen_20dp"
+                android:text="@{`R$ `+ account.balance}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/guideline_vertical"
+                tools:text="R$ 1.000,00"/>
 
             <TextView
-                    android:id="@+id/labelValue"
-                    style="@style/Label"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="1dp"
-                    android:text="@string/balance"
-                    app:layout_constraintBottom_toTopOf="@+id/balanceValue"
-                    app:layout_constraintStart_toStartOf="@+id/guideline_vertical"/>
+                android:id="@+id/labelValue"
+                style="@style/Label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
+                android:text="@string/balance"
+                app:layout_constraintBottom_toTopOf="@+id/balanceValue"
+                app:layout_constraintStart_toStartOf="@+id/guideline_vertical"/>
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.Guideline

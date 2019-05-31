@@ -1,8 +1,8 @@
 apply plugin: 'com.android.application'
-
 apply plugin: 'kotlin-android'
-
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+//apply plugin: 'androidx.navigation.safeargs'
 
 android {
     compileSdkVersion 28
@@ -19,7 +19,11 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+        buildTypes.each{
+            it.buildConfigField 'String', 'API_ROOT', '"https://bank-app-test.herokuapp.com/api/"'
+        }
     }
+
     dataBinding {
         enabled = true
     }
@@ -40,6 +44,8 @@ dependencies {
     implementation "androidx.recyclerview:recyclerview:$version_material"
     implementation "com.squareup.picasso:picasso:$picasso_version"
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    annotationProcessor "com.google.dagger:dagger-compiler:$dagger_version"
+    api "com.google.dagger:dagger:$dagger_version"
 
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.1.1'
