@@ -34,7 +34,7 @@ dependencies {
     implementation "androidx.navigation:navigation-ui-ktx:$version_navigation"
     implementation "com.squareup.retrofit2:retrofit:$retrofit"
     implementation "com.squareup.retrofit2:converter-gson:${retrofit}"
-//    implementation "androidx.recyclerview:recyclerview:$version_material"
+    implementation "androidx.recyclerview:recyclerview:$version_material"
     implementation "com.squareup.picasso:picasso:$picasso_version"
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
 
