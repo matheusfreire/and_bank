@@ -7,13 +7,13 @@ import com.google.gson.annotations.SerializedName
 class Account {
 
     @SerializedName("userId")
-    private val userId: Int = 0
+    var userId: Int = 0
     @SerializedName("name")
-    private val name: String? = null
+    var name: String? = null
     @SerializedName("bankAccount")
-    private val bankAccount: String? = null
+    var bankAccount: String? = null
     @SerializedName("agency")
-    private val agency: String? = null
+    var agency: String? = null
     @SerializedName("balance")
-    private val balance: Double = 0.toDouble()
+    var balance: Double = 0.toDouble()
 }

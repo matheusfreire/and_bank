@@ -9,6 +9,8 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import com.msf.bank.R
 import com.msf.bank.databinding.FragmentLoginBinding
+import com.msf.bank.repository.RetrofitInstance
+import javax.inject.Inject
 
 class LoginFragment : Fragment() {
 

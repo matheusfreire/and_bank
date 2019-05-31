@@ -12,8 +12,10 @@ import com.msf.bank.databinding.FragmentAccountBinding
 
 class AccountFragment : Fragment() {
 
+    private lateinit var dataBinding: FragmentAccountBinding
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,savedInstanceState: Bundle?): View? {
-        val dataBinding:FragmentAccountBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_account, container, false )
+        dataBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_account, container, false )
         return dataBinding.root
     }
 

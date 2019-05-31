@@ -55,11 +55,11 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/dimen_1dp"
                 android:text="@string/account"
-                app:layout_constraintBottom_toTopOf="@+id/account"
+                app:layout_constraintBottom_toTopOf="@+id/agencyWithBankAccount"
                 app:layout_constraintStart_toStartOf="@+id/guideline_vertical"/>
 
             <TextView
-                android:id="@+id/account"
+                android:id="@+id/agencyWithBankAccount"
                 style="@style/ItemValueWhite"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
