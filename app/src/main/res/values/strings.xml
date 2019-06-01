@@ -14,6 +14,7 @@
     <string name="balance">Saldo</string>
     <string name="account_value">%1$s / %2$s</string>
     <string name="an_error_has_occurred">Aconteceu algo inesperado, tente novamente mais tarde.</string>
-    <string name="value"></string>
+    <!--<string name="value"></string>-->
     <string name="bank">BANK</string>
+    <string name="field_empty">This field is mandatory</string>
 </resources>

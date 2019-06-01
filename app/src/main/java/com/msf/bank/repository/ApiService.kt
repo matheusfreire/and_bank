@@ -1,7 +1,7 @@
 package com.msf.bank.repository
 
-import com.msf.bank.model.StatementJson
 import com.msf.bank.model.LoginJson
+import com.msf.bank.model.StatementJson
 import retrofit2.Call
 import retrofit2.http.*
 
@@ -14,4 +14,5 @@ interface ApiService {
 
     @GET("statements/{id}")
     fun callStatement(@Path("id") idMovie: Int): Call<StatementJson>
+
 }

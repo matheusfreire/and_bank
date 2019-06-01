@@ -7,5 +7,8 @@
         <action android:id="@+id/action_loginFragment_to_accountFragment" app:destination="@id/accountFragment"/>
     </fragment>
     <fragment android:id="@+id/accountFragment" android:name="com.msf.bank.view.AccountFragment"
-              android:label="AccountFragment"/>
+              android:label="AccountFragment">
+        <argument android:name="login_json" app:argType="com.msf.bank.model.LoginJson"/>
+        <action android:id="@+id/action_accountFragment_to_loginFragment" app:destination="@id/loginFragment"/>
+    </fragment>
 </navigation>
