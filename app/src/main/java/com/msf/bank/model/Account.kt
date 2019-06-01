@@ -1,7 +1,8 @@
 package com.msf.bank.model
 
 import com.google.gson.annotations.SerializedName
-
+import java.text.NumberFormat
+import java.util.*
 
 
 class Account {
@@ -15,5 +16,11 @@ class Account {
     @SerializedName("agency")
     var agency: String? = null
     @SerializedName("balance")
-    var balance: Double = 0.toDouble()
+    var balance: Double = 0.0
+
+    fun getCurrencyBalance(): String{
+        val format = NumberFormat.getCurrencyInstance(Locale("pt", "BR"))
+        return format.format(balance)
+    }
+
 }

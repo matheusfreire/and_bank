@@ -1,29 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
     <data>
-        <variable name="account" type="com.msf.bank.model.Account"/>
+        <variable
+            name="account"
+            type="com.msf.bank.model.Account" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
         <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:background="@color/colorPrimary"
-                app:layout_constraintBottom_toTopOf="@+id/guideline_horizontal"
-                app:layout_constraintTop_toTopOf="parent" tools:layout_editor_absoluteX="0dp"
-                app:layout_constraintVertical_bias="0.0">
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:background="@color/colorPrimary"
+            app:layout_constraintBottom_toTopOf="@+id/guideline_horizontal"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            tools:layout_editor_absoluteX="0dp">
 
             <androidx.constraintlayout.widget.Guideline
                 android:id="@+id/guideline_vertical"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                app:layout_constraintGuide_begin="20dp"/>
+                app:layout_constraintGuide_begin="20dp" />
 
 
             <TextView
@@ -35,7 +39,7 @@
                 android:text="@{account.name}"
                 app:layout_constraintStart_toStartOf="@+id/guideline_vertical"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:text="Jose da Silva Teste"/>
+                tools:text="Jose da Silva Teste" />
 
             <ImageView
                 android:id="@+id/out"
@@ -46,7 +50,7 @@
                 android:contentDescription="@string/out"
                 android:padding="@dimen/dimen_5dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"/>
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/labelAccount"
@@ -56,7 +60,7 @@
                 android:layout_marginBottom="@dimen/dimen_1dp"
                 android:text="@string/account"
                 app:layout_constraintBottom_toTopOf="@+id/agencyWithBankAccount"
-                app:layout_constraintStart_toStartOf="@+id/guideline_vertical"/>
+                app:layout_constraintStart_toStartOf="@+id/guideline_vertical" />
 
             <TextView
                 android:id="@+id/agencyWithBankAccount"
@@ -67,7 +71,7 @@
                 android:text="@{account.agency + `/` +  account.bankAccount}"
                 app:layout_constraintBottom_toTopOf="@id/labelValue"
                 app:layout_constraintStart_toStartOf="@+id/guideline_vertical"
-                tools:text="2050 / 01.111222-4"/>
+                tools:text="2050 / 01.111222-4" />
 
 
             <TextView
@@ -76,10 +80,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/dimen_20dp"
-                android:text="@{`R$ `+ account.balance}"
+                android:text="@{account.currencyBalance}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/guideline_vertical"
-                tools:text="R$ 1.000,00"/>
+                tools:text="R$ 1.000,00" />
 
             <TextView
                 android:id="@+id/labelValue"
@@ -89,45 +93,45 @@
                 android:layout_marginBottom="1dp"
                 android:text="@string/balance"
                 app:layout_constraintBottom_toTopOf="@+id/balanceValue"
-                app:layout_constraintStart_toStartOf="@+id/guideline_vertical"/>
+                app:layout_constraintStart_toStartOf="@+id/guideline_vertical" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.Guideline
-                android:id="@+id/guideline_horizontal"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                app:layout_constraintGuide_begin="200dp"/>
+            android:id="@+id/guideline_horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="200dp" />
 
         <ProgressBar
-                android:id="@+id/statements_progress"
-                style="?android:attr/progressBarStyleLarge"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/guideline_horizontal"
-                app:layout_constraintBottom_toBottomOf="parent"
-                android:visibility="gone"/>
+            android:id="@+id/statements_progress"
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/guideline_horizontal" />
 
         <TextView
-                android:id="@+id/lasts"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/dimen_16dp"
-                android:text="@string/lasts"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/guideline_horizontal"/>
+            android:id="@+id/lasts"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dimen_16dp"
+            android:text="@string/lasts"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/guideline_horizontal" />
 
         <androidx.recyclerview.widget.RecyclerView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@+id/lasts"
-                app:layout_constraintStart_toStartOf="parent"
-                android:layout_marginStart="@dimen/dimen_5dp"
-                android:layout_marginEnd="@dimen/dimen_5dp"
-                tools:listitem="@layout/statement_item"/>
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_5dp"
+            android:layout_marginEnd="@dimen/dimen_5dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lasts"
+            tools:listitem="@layout/statement_item" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

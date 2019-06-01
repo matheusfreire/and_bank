@@ -19,6 +19,8 @@ class BankViewModel(application: Application): AndroidViewModel(application) {
         MutableLiveData<LoginJson>()
     }
 
+    lateinit var loginJson: LoginJson
+
     init {
         inject()
     }
