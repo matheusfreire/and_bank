@@ -50,7 +50,8 @@
                 android:contentDescription="@string/out"
                 android:padding="@dimen/dimen_5dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                android:src="@drawable/ic_out"/>
 
             <TextView
                 android:id="@+id/labelAccount"

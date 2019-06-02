@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.msf.bank.R
@@ -31,6 +32,9 @@ class AccountFragment : Fragment() {
         observeStatements()
         with(dataBinding.recyclerViewStatements) {
             layoutManager = LinearLayoutManager(context)
+        }
+        dataBinding.out.setOnClickListener {
+            it.findNavController().navigateUp()
         }
         return dataBinding.root
     }
