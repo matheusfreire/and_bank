@@ -14,6 +14,7 @@ import androidx.navigation.findNavController
 import com.google.android.material.snackbar.Snackbar
 import com.msf.bank.R
 import com.msf.bank.databinding.FragmentLoginBinding
+import com.msf.bank.util.EspressIdlingResource
 import com.msf.bank.viewmodel.BankViewModel
 
 class LoginFragment : Fragment() {
@@ -66,5 +67,6 @@ class LoginFragment : Fragment() {
 
     private fun makeCallToLogin() {
         bankViewModel.callLogin(dataBinding.textEditUser.text.toString(), dataBinding.textEditPassword.text.toString())
+        EspressIdlingResource.increment()
     }
 }

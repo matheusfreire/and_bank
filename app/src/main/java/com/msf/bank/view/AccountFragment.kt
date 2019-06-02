@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.msf.bank.R
 import com.msf.bank.databinding.FragmentAccountBinding
+import com.msf.bank.util.EspressIdlingResource
 import com.msf.bank.viewmodel.BankViewModel
 
 class AccountFragment : Fragment() {
@@ -66,5 +67,10 @@ class AccountFragment : Fragment() {
     private fun showRecyclerView() {
         dataBinding.recyclerViewStatements.visibility = View.VISIBLE
         dataBinding.statementsProgress.visibility = View.GONE
+    }
+
+    override fun onResume() {
+        super.onResume()
+        EspressIdlingResource.decrement()
     }
 }
