@@ -3,12 +3,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <data>
-        <variable
-            name="statement"
-            type="com.msf.bank.model.Statement" />
-    </data>
-
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -21,19 +15,18 @@
             android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/item_title"
+                android:id="@+id/itemTitle"
                 style="@style/ItemTitleAndData"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/dimen_10dp"
                 android:layout_marginTop="@dimen/dimen_10dp"
-                android:text="@{statement.title}"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:text="Pagamento" />
 
             <TextView
-                android:id="@+id/item_date"
+                android:id="@+id/itemDate"
                 style="@style/ItemTitleAndData"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -49,9 +42,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/dimen_10dp"
                 android:layout_marginTop="@dimen/dimen_15dp"
-                android:text="@{statement.desc}"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/item_title"
+                app:layout_constraintTop_toBottomOf="@+id/itemTitle"
                 tools:text="Conta de Luz" />
 
             <TextView
@@ -62,9 +54,8 @@
                 android:layout_marginStart="@dimen/dimen_10dp"
                 android:layout_marginTop="@dimen/dimen_15dp"
                 android:layout_marginEnd="@dimen/dimen_10dp"
-                android:text="@{`R$ ` + statement.value}"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/item_date"
+                app:layout_constraintTop_toBottomOf="@+id/itemDate"
                 tools:text="R$ 1.000,00" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>

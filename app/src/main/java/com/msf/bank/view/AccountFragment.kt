@@ -7,7 +7,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.msf.bank.R
 import com.msf.bank.databinding.FragmentAccountBinding
 import com.msf.bank.viewmodel.BankViewModel
@@ -24,11 +27,12 @@ class AccountFragment : Fragment() {
         } ?: throw Exception("Invalid Activity")
         getLoginJson()
         setAccount()
+        getStatements()
+        observeStatements()
+        with(dataBinding.recyclerViewStatements) {
+            layoutManager = LinearLayoutManager(context)
+        }
         return dataBinding.root
-    }
-
-    private fun setAccount() {
-        dataBinding.account = bankViewModel.loginJson.account
     }
 
     private fun getLoginJson() {
@@ -36,5 +40,27 @@ class AccountFragment : Fragment() {
         bankViewModel.loginJson = args!!.loginJson
     }
 
+    private fun setAccount() {
+        dataBinding.account = bankViewModel.loginJson.account
+    }
 
+    private fun getStatements() {
+        bankViewModel.callStatements()
+    }
+
+    private fun observeStatements() {
+        bankViewModel.mutableLiveDataStatements.observe(this, Observer {
+            if(it == null){
+
+            } else {
+                dataBinding.recyclerViewStatements.adapter = StatementsAdapter(it.statementList!!)
+                showRecyclerView()
+            }
+        })
+    }
+
+    private fun showRecyclerView() {
+        dataBinding.recyclerViewStatements.visibility = View.VISIBLE
+        dataBinding.statementsProgress.visibility = View.GONE
+    }
 }

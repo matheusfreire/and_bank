@@ -13,6 +13,6 @@ interface ApiService {
     fun callLogin(@Field("user") username: String, @Field("password") password: String): Call<LoginJson>
 
     @GET("statements/{id}")
-    fun callStatement(@Path("id") idMovie: Int): Call<StatementJson>
+    fun callStatement(@Path("id") idUser: Int): Call<StatementJson>
 
 }

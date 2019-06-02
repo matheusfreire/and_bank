@@ -1,8 +1,7 @@
 package com.msf.bank.model
 
 import com.google.gson.annotations.SerializedName
-import java.text.NumberFormat
-import java.util.*
+import com.msf.bank.util.ConvertUtil
 
 
 class Account {
@@ -19,8 +18,7 @@ class Account {
     var balance: Double = 0.0
 
     fun getCurrencyBalance(): String{
-        val format = NumberFormat.getCurrencyInstance(Locale("pt", "BR"))
-        return format.format(balance)
+        return ConvertUtil.getCurrencyBalance(balance)
     }
 
 }
